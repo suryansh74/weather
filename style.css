@@ -1,0 +1,382 @@
+body {
+    font-size: 18px; /* Set the desired base font size */
+    line-height: 1.5; /* Optional: Adjust line height for better readability */
+}
+
+/* You can also adjust specific element styles as needed */
+h2{
+    font-size: 1.7em; /* Example: Increase heading sizes */
+}
+h5
+{
+    font-size: 1.3em;
+}
+.box
+{
+    margin: 10px;
+}
+.weather-table {
+    width: fit-content;
+    border-collapse: collapse;
+    
+}
+
+.weather-table td {
+    padding: 10px;
+    
+}
+
+.big-font {
+    font-size: 18px;
+}
+
+.small-font {
+    font-size: 12px;
+    color: #666;
+}
+.big-icon {
+    margin-left: 1rem;
+    font-size: 2em; /* Adjust the font size for the icon */
+    vertical-align: middle; /* Vertically align the icon within the line */
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+#chart {
+    max-width: 30%; /* Adjust the value as needed */
+    max-height: 30vh; /* Adjust the value as needed */
+    width: 100%;
+    height: 100%;
+    margin-left: 5%;
+}
+.vertical-line {
+    width: 1px;
+    background-color: #ccc;
+    margin: 0 20px; /* Adjust the margin as needed */
+    display: none; /* Initially hide the vertical line */
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .brand {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .navbar-links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-link {
+    text-decoration: none;
+    color: black;
+    margin: 1em;
+    transition: color 0.3s;
+  }
+
+  .navbar-link:hover {
+    color: #FFD700;
+  }
+
+  /* Add styles for the moon and sun icons */
+  .dark-theme-icon {
+    font-size: 20px;
+    width: 20px; /* Add a fixed width to prevent shifting */
+    text-align: center; /* Center the icon horizontally */
+    cursor: pointer;
+  }
+  /* https://tilecache.rainviewer.com/v2/radar/1692218516/2048/2/26.922070/75.778885/Original/1_0.png */
+/* Table Styles */
+#dataTable {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#dataTable th, #dataTable td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#dataTable th {
+  background-color: #f2f2f2;
+}
+
+#dataTable tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 600px) {
+  #dataTable {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  #dataTable th, #dataTable td {
+      text-align: left;
+      display: block;
+      padding: 10px;
+  }
+
+  #dataTable th {
+      text-align: left;
+  }
+
+  #dataTable tbody tr {
+      margin-bottom: 10px;
+  }
+}
+.flex-container {
+  display: flex;
+  margin: auto 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.table-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.button-container {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn:hover {
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+#exportButtonContainer {
+  position: relative;
+  height: 0;
+  padding-top: 20px; /* Add some padding to give space for the button */
+}
+
+#exportButton {
+  position: absolute;
+  background-color: #FFD700;
+  top: 0;
+  right: 0;
+}
+a
+{
+  list-style: none;
+  background-color: aquamarine; border-radius: 5px; padding:10px;
+}
+a:hover
+{
+  list-style: none;
+  background-color: rgb(0, 215, 143);
+  color: white;
+}
+
+
+
+/* CSS */
+.button-6 {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-6:hover,
+.button-6:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.button-6:hover {
+  transform: translateY(-1px);
+}
+
+.button-6:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+
+/* CSS */
+.button-23 {
+  background-color: #FFFFFF;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 5px 10px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+
+.button-23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+.button-23:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(.96);
+}
+
+.button-23:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  cursor: not-allowed;
+  opacity: 1;
+}
+/* Thunderstorm */
+/* Thunderstorm */
+.wi-thunderstorm {
+  color: #1d3c71; /* Dark blue color for thunderstorm */
+}
+
+/* Showers */
+.wi-showers {
+  color: #1a7249; /* Dark green color for showers */
+}
+
+/* Rain */
+.wi-rain {
+  color: #003080; /* Navy blue color for rain */
+}
+
+/* Snow */
+.wi-snow {
+  color: #7898b3; /* Light blue color for snow */
+}
+
+/* Sleet */
+.wi-sleet {
+  color: #657e8d; /* Dark gray color for sleet */
+}
+
+/* Mist / Fog */
+.wi-fog {
+  color: #6d7d87; /* Dark gray color for fog/mist */
+}
+
+/* Smoke */
+.wi-smoke {
+  color: #636363; /* Slightly darker gray color for smoke */
+}
+
+/* Haze */
+.wi-day-haze {
+  color: #8d8d8d; /* Slightly darker gray color for haze */
+}
+
+/* Dust */
+.wi-dust {
+  color: #99734d; /* Darker brown color for dust */
+}
+
+/* Sand/Dust Whirls */
+.wi-dust {
+  color: #99734d; /* Darker brown color for sand/dust whirls */
+}
+
+/* Squalls */
+.wi-strong-wind {
+  color: #8c9ba9; /* Slightly darker gray color for squalls */
+}
+
+/* Tornado */
+.wi-tornado {
+  color: #2b2b2b; /* Dark gray color for tornado */
+}
+
+/* Clear sky */
+.wi-day-sunny {
+  color: #f0ad4e; /* Orange color for clear sky */
+}
+
+/* Few clouds */
+.wi-day-cloudy {
+  color: #c0c0c0; /* Light gray color for few clouds */
+}
+
+/* Scattered clouds */
+.wi-day-cloudy-gusts {
+  color: #c0c0c0; /* Light gray color for scattered clouds */
+}
+
+/* Broken clouds */
+.wi-day-cloudy-windy {
+  color: #c0c0c0; /* Light gray color for broken clouds */
+}
+
+/* Overcast clouds */
+.wi-day-fog {
+  color: #9b9b9b; /* Slightly darker gray color for overcast clouds */
+}
+
+/* Not available / unknown condition */
+.wi-na {
+  color: #7e7e7e; /* Dark gray color for unknown condition */
+}
+.myElementId
+{
+  max-width: 300px;
+  position: absolute;
+  top: 80%;
+  left: 5%;
+}
