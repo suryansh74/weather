@@ -807,94 +807,91 @@ const indianLocations = {
 
             // Send AJAX request to the PHP script
             $.ajax({
-                type: 'POST',
-                url: `https://indiaweather.000webhostapp.com/index.php`,
-                data: { modifiedCapital: modifiedCapital, state:capital.slice(0, -5) },
-                success: function(response) {
-                    const responseObject = JSON.parse(response);
-                    console.log('AJAX success:', responseObject.status);
-                    
-                    let temp = [];
-                    let time = [];
+    type: 'POST',
+    url: `https://indiaweather.000webhostapp.com/index.php`,
+    data: { modifiedCapital: modifiedCapital, state:capital.slice(0, -5) },
+    success: function(response) {
+        const responseObject = JSON.parse(response);
+        console.log('AJAX success:', responseObject.status);
 
-                    // Convert time from "00:00:00" format to "12AM" format
-                    function convertTo12HourFormat(time) {
-                        const [hours, minutes, seconds] = time.split(':');
-                        let period = 'AM';
-                        
-                        // Convert hours to 12-hour format
-                        let hours12 = parseInt(hours);
-                        if (hours12 >= 12) {
-                            period = 'PM';
-                            if (hours12 > 12) {
-                                hours12 -= 12;
-                            }
-                        } else if (hours12 === 0) {
-                            hours12 = 12; // Midnight
-                        }
+        let temp = [];
+        let time = [];
 
-                        return `${hours12}:${period}`;
-                    }
+        // Convert time from "00:00:00" format to "12AM" format
+        function convertTo12HourFormat(time) {
+            const [hours, minutes, seconds] = time.split(':');
+            let period = 'AM';
 
-                    // Check if the response has "data" property
-                    if (responseObject.data) {
-                        // Loop through the "data" array in the response
-                        document.querySelector('.vertical-line').style.display = 'block';
-                        for (const entry of responseObject.data) {
-                            // Extract temperature and time from each entry
-                            if (entry.temp) {
-                                temp.push(parseFloat(entry.temp));
-                            }
-                            if (entry.time) {
-                                const formattedTime = convertTo12HourFormat(entry.time);
-                                time.push(formattedTime);
-                            }
-                        }
+            // Convert hours to 12-hour format
+            let hours12 = parseInt(hours);
+            if (hours12 >= 12) {
+                period = 'PM';
+                if (hours12 > 12) {
+                    hours12 -= 12;
+                }
+            } else if (hours12 === 0) {
+                hours12 = 12; // Midnight
+            }
 
-                        // Log the extracted values
-                        temp.reverse();
-                        time.reverse();
-                
-                        // Create a graph using Chart.js
-                        var options = {
-                            chart: {
-                                type: 'line',
-                            },
-                            series: [{
-                                name: 'Temperature (°C)',
-                                data: temp
-                            }],
-                            title: {
-                                text: capital.slice(0, -5),
-                                align: 'center'
-                              },
-                            xaxis: {
-                                categories: time,
-                                title: {
-                                    text: 'Time'
-                                }
-                            },
-                            stroke: {
-                              
-                                curve: 'smooth'
-                              },
-                            yaxis: {
-                                title: {
-                                    text: 'Temperature (°C)'
-                                }
-                            }
-                        };
-                          
-                          var chart = new ApexCharts(document.querySelector("#chart"), options);
-                          
-                          chart.render();
-                          
-                    }
+            return `${hours12}:${period}`;
+        }
+
+        // Check if the response has "data" property
+        if (responseObject.data) {
+            // Loop through the "data" array in the response
+            document.querySelector('.vertical-line').style.display = 'block';
+            for (const entry of responseObject.data) {
+                // Extract temperature and time from each entry
+                if (entry.temp) {
+                    temp.push(parseFloat(entry.temp));
+                }
+                if (entry.time) {
+                    const formattedTime = convertTo12HourFormat(entry.time);
+                    time.push(formattedTime);
+                }
+            }
+
+            // Log the extracted values
+            temp.reverse();
+            time.reverse();
+
+            // Create a graph using Chart.js
+            var ctx = document.getElementById('chart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: time,
+                    datasets: [{
+                        label: 'Temperature (°C)',
+                        data: temp,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
                 },
-                error: function(error) {
-                    console.log('AJAX error:', error);
+                options: {
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Temperature (°C)'
+                            }
+                        }
+                    }
                 }
             });
+        }
+    },
+    error: function(error) {
+        console.log('AJAX error:', error);
+    }
+});
         }
     });
 });
